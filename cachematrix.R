@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Together these functions optimize the inversion of a matrix by caching the inverted matrix
+## so that it can be accessed without having to recompute the inversion. 
 
 ## This function creates a special "matrix" object that can cache its inverse.
 ## The object is really a list of functions that:
