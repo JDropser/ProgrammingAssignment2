@@ -9,17 +9,17 @@
 ## Set the inverted matrix in cache
 
 makeCacheMatrix <- function(x = matrix()) {
-  invtd <- NULL
+  invx <- NULL
   set <- function(y) {
     x <<- y
-    invtd <<- NULL
+    invx <<- NULL
   }
   get <- function() x
-  setinvtd <- function(solve) invtd <<- solve
-  getinvtd <- function() invtd
+  setinvt <- function(slvmat) invx <<- slvmat
+  getinvt <- function() invx
   list(set = set, get = get,
-       setinvtd = setinvtd,
-       getinvtd = getinvtd)
+       setinvt = setinvt,
+       getinvt = getinvt)
 }
 
 
@@ -29,7 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  invtd<-x$getinvtd
+  invtd<-x$getinvt()
   #check to see if invtd matrix is in cache.
   if (!is.null(invtd)) {
        message("getting inverted matrix from cache")
@@ -39,6 +39,6 @@ cacheSolve <- function(x, ...) {
   mtoinv<-x$get()
   # invert the matrix and store in cache
   invtd<-solve(mtoinv)
-  x$setinvtd(invtd)
+  x$setinvt(invtd)
   invtd
 }
