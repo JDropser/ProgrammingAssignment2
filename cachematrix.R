@@ -28,7 +28,8 @@ makeCacheMatrix <- function(x = matrix()) {
 ## The cached inversion is returned.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        ## Return a matrix that is the inverse of the matrix from the set function in makeCacheMatrix
+        ## x is a list of functions from makeCacheMatrix
   invtd<-x$getinvt()
   #check to see if invtd matrix is in cache.
   if (!is.null(invtd)) {
